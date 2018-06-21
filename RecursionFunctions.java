@@ -473,13 +473,8 @@
 			return false;
 		return true;
 	} 
-	//								
-	//			   
-	//				 [#]-[#]
-	//				   | | 
-	//				[#]---[#]
-	//
-	//
+
+
 	/**	
 	 * 2014B A4 85 - longestWorm 
 	 */
@@ -512,18 +507,18 @@
 	}
 
 	
-	public static int wormCount(int[][] a,int i,int j,int lastValue,boolean start)
+    public static int wormCount(int[][] a,int i,int j,int lastValue,boolean start)
     {
       if(i<0||i==a.length||j<0||j==a[0].length )
-        return 0;   
-        if(lastValue == a[i][j] - 1 || start) {
+		return 0;   
+      if(lastValue == a[i][j] - 1 || start) {
         	int left = wormCount(a,i,j-1,a[i][j],false);
         	int right = wormCount(a,i,j+1,a[i][j],false);
         	int up = wormCount(a,i-1,j,a[i][j],false);
         	int down = wormCount(a,i+1,j,a[i][j],false);
         	return 1 + max(left,right,up,down);
-        }
-        return 0;
+      }
+    return 0;
     }
 
     public static int longestWorm2(int[][] a,int i,int j,int max)
