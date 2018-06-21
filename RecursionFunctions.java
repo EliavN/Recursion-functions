@@ -7,7 +7,7 @@
 
 
 /**
- * Exam 2007A2 first recursion question
+ * Exam 2007A2 maxRow
  */
 	public static int maxRow(int[][]a){   
 		return maxRow(a,0,0,0,0);
@@ -33,7 +33,7 @@
 	
 	
 	/**
-	 * Exam 2007B1A first recursion question
+	 * Exam 2007B1A equalSum
 	 */
 	
 	public static int equalSum(int[] a) {
@@ -56,13 +56,10 @@
 		return a[i] + range(a, i+1, j);
 	}
 	
-	
-	
-	
-	
-	
+
+
 	/**
-	 * Exam A3 B 2007 first recursion method - without overloading
+	 * Exam A3 B 2007 isSubString - without overloading
 	 */
 	public static boolean isSubString(String s1, String s2)
 	{
@@ -136,7 +133,7 @@
 		if(prev+1==mat[i][j]|| s) {
 		boolean right = isPath(mat,i,j+1,mat[i][j], false),
 				left = isPath(mat,i,j-1,mat[i][j],false),
-				up = isPath(mat,i+1,j,mat[i][j],false),
+			    up = isPath(mat,i+1,j,mat[i][j],false),
 				down = isPath(mat,i-1,j,mat[i][j],false);
 		
 		return right || left || up || down;
@@ -145,12 +142,10 @@
 	}
 	
 	
-	
-	
-	
+
 	/**
-	 * 
-	 * Exam 2012 A1 A - splitEqualSum
+
+	 * Exam 2012A A1 - splitEqualSum
 	 */
 	public static boolean splitEqualSum(int[] a){
 		return splitEqualSum(a,0,0,0);
