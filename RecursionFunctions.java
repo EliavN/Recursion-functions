@@ -478,50 +478,11 @@
 	/**	
 	 * 2014B A4 85 - longestWorm 
 	 */
-	public static int longestWorm(int[][] mat){
-		return longestWorm(mat, 0,0,0);
-	}
-	
-	private static int longestWorm(int[][] mat,int i, int j, int max){
-		if (i == mat.length) return max;
-		if (j == mat[i].length)
-			return longestWorm(mat, i + 1, 0, max);
-		max= Math.max(max,wormCount(mat,i,j));
-		return longestWorm(mat, i, j + 1, Math.max(max,wormCount(mat,i,j)));
-	}
-	private static int wormCount(int[][] mat, int i, int j){
-		if(i < mat.length-1 && mat[i][j] == mat[i+1][j]+1) 
-			return 1+ wormCount(mat, i+1, j);
-		if(j < mat[i].length-1 && mat[i][j] == mat[i][j+1]+1) 
-			return 1+ wormCount(mat, i, j+1);
-		if(i > 0 && mat[i][j] == mat[i-1][j]+1) 
-			return 1+ wormCount(mat, i-1, j); 
-		if(j > 0 && mat[i][j] == mat[i][j-1]+1)
-			return 1+ wormCount(mat, i, j-1);
-		return 1;
-	}
-	private static int max(int x,int y, int a, int b) {
-		int max1 = x > y ? x : y;
-		int max2 = a > b ? a : b;
-		return max1 > max2 ? max1 : max2;
-	}
-
-	
-    public static int wormCount(int[][] a,int i,int j,int lastValue,boolean start)
-    {
-      if(i<0||i==a.length||j<0||j==a[0].length )
-		return 0;   
-      if(lastValue == a[i][j] - 1 || start) {
-        	int left = wormCount(a,i,j-1,a[i][j],false);
-        	int right = wormCount(a,i,j+1,a[i][j],false);
-        	int up = wormCount(a,i-1,j,a[i][j],false);
-        	int down = wormCount(a,i+1,j,a[i][j],false);
-        	return 1 + max(left,right,up,down);
-      }
-    return 0;
+	public static int longestWorm(int[][] a){
+    	return longestWorm2(a,0,0,1);   
     }
 
-    public static int longestWorm2(int[][] a,int i,int j,int max)
+    private static int longestWorm(int[][] a,int i,int j,int max)
     {
         if(i==a.length)
             return max;        
@@ -530,9 +491,23 @@
         max = Math.max(max, wormCount(a,i,j,a[i][j],true));
         return longestWorm2(a,i,j+1,max);        
     }
-    public static int longestWorm2(int[][] a){
-    	return longestWorm2(a,0,0,1);   
+
+    private static int wormCount(int[][] a,int i,int j,int lastValue,boolean start)
+    {
+		if(i<0||i==a.length||j<0||j==a[0].length )
+			return 0;   
+		
+		if(lastValue == a[i][j] - 1 || start){
+			int left = wormCount(a,i,j-1,a[i][j],false);
+			int right = wormCount(a,i,j+1,a[i][j],false);
+			int up = wormCount(a,i-1,j,a[i][j],false);
+		 	int down = wormCount(a,i+1,j,a[i][j],false);
+			return 1 + max(left,right,up,down);
+      	}
+	  	return 0;
     }
+
+
 	/**
 	 * 2015A 89 - splitEqualMult
 	 */
