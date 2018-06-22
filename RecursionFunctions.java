@@ -355,7 +355,7 @@
 
 	
 	
-	
+
 	
 	
 	/**
@@ -487,24 +487,24 @@
         if(i==a.length)
             return max;        
         if(j==a[0].length)
-            return longestWorm2(a,i+1,0,max);       
+            return longestWorm(a,i+1,0,max);       
         max = Math.max(max, wormCount(a,i,j,a[i][j],true));
-        return longestWorm2(a,i,j+1,max);        
+        return longestWorm(a,i,j+1,max);        
     }
 
     private static int wormCount(int[][] a,int i,int j,int lastValue,boolean start)
     {
-		if(i<0||i==a.length||j<0||j==a[0].length )
-			return 0;   
+	if(i<0||i==a.length||j<0||j==a[0].length )
+		return 0;   
 		
-		if(lastValue == a[i][j] - 1 || start){
-			int left = wormCount(a,i,j-1,a[i][j],false);
-			int right = wormCount(a,i,j+1,a[i][j],false);
-			int up = wormCount(a,i-1,j,a[i][j],false);
-		 	int down = wormCount(a,i+1,j,a[i][j],false);
-			return 1 + max(left,right,up,down);
-      	}
-	  	return 0;
+	if(lastValue == a[i][j] - 1 || start){
+		int left = wormCount(a,i,j-1,a[i][j],false);
+		int right = wormCount(a,i,j+1,a[i][j],false);
+		int up = wormCount(a,i-1,j,a[i][j],false);
+		int down = wormCount(a,i+1,j,a[i][j],false);
+		return 1 + max(left,right,up,down);
+	}
+	return 0;
     }
 
 
