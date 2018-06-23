@@ -755,8 +755,8 @@
 	/**
 	 * Exam 2018A A1 - longestSlope
 	 */
-	public static int slopeCount(int[][] a, int k, int i,int j,int prev, boolean first)
-    {
+   public static int slopeCount(int[][] a, int k, int i,int j,int prev, boolean first)
+   {
       if(i<0||i==a.length||j<0||j==a[0].length )
         return 0;   
         if(prev == a[i][j] - k || first) {
@@ -767,8 +767,8 @@
         
         return 1 + max(left,right,up,down);
    
-        }
-        return 0;
+      }
+      return 0;
     }
 
     public static int longestSlope(int[][] a,int k, int i,int j,int max)
