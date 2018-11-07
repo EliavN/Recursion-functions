@@ -760,17 +760,15 @@
    {
       if(i<0||i==a.length||j<0||j==a[0].length )
         return 0;   
-        if(prev == a[i][j] - k || first) {
+      if(prev == a[i][j] - k || first) {
         int left = slopeCount(a,k, i,j-1,a[i][j],false);
         int right = slopeCount(a,k, i,j+1,a[i][j],false);
         int up = slopeCount(a,k, i-1,j,a[i][j],false);
         int down = slopeCount(a,k, i+1,j,a[i][j],false);
-        
-        return 1 + max(left,right,up,down);
-   
+	return 1 + max(left,right,up,down);
       }
       return 0;
-    }
+   }
 
     private static int longestSlope(int[][] a,int k, int i,int j,int max)
     {
@@ -785,7 +783,11 @@
     	return longestSlope(a,k,0,0,1);   
     }	
     
-    
+    private static int max(int x,int y, int a, int b) {
+	int max1 = x > y ? x : y;
+	int max2 = a > b ? a : b;
+	return max1 > max2 ? max1 : max2;
+    }
     
     
     
