@@ -57,20 +57,6 @@
 		return a[i] + range(a, i+1, j);
 	}
 	
-
-
-	/**
-	 * Exam A3 B 2007 isSubString - without overloading
-	 */
-	public static boolean isSubString(String s1, String s2)
-	{
-		if(s1.length()<s2.length()) return false;
-		if(s1.equals(s2)) return true;
-		
-		return isSubString(s1.substring(1), s2);
-	}
-	
-	
 	
 	/**
 	 *  Exam B1 B 2007 - merge method
