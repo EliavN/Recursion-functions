@@ -745,13 +745,13 @@
    private static int slopeCount(int[][] a, int k, int i,int j,int prev, boolean first)
    {
       if(i<0||i==a.length||j<0||j==a[0].length )
-        return 0;   
+      	 return 0;   
       if(prev == a[i][j] - k || first) {
-        int left = slopeCount(a,k, i,j-1,a[i][j],false);
-        int right = slopeCount(a,k, i,j+1,a[i][j],false);
-        int up = slopeCount(a,k, i-1,j,a[i][j],false);
-        int down = slopeCount(a,k, i+1,j,a[i][j],false);
-	return 1 + max(left,right,up,down);
+         int left = slopeCount(a,k, i,j-1,a[i][j],false);
+         int right = slopeCount(a,k, i,j+1,a[i][j],false);
+         int up = slopeCount(a,k, i-1,j,a[i][j],false);
+         int down = slopeCount(a,k, i+1,j,a[i][j],false);
+	 return 1 + max(left,right,up,down);
       }
       return 0;
    }
