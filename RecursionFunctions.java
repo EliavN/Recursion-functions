@@ -405,19 +405,19 @@
 	 * Exam 2014A 85 A5 - printPath option 1
 	 */
 	public static void printPath1(int[][] a){
-		printPath1(a, new boolean[a.length][a.length],0,0,0,0);
+		printPath1(a, new boolean[a.length][a.length],0,0,0);
 	}
-	private static void printPath1(int[][] a, boolean[][] ref, int i, int j, int prev, int counter)
+	private static void printPath1(int[][] a, boolean[][] ref, int i, int j, int prev)
 	{
 	    if(i<0 || i==a.length || j < 0 || j==a.length || ref[i][j])
 		return;
 	    if(prev<a[i][j])
 		System.out.print("("+ i +","+ j +")");
 	    ref[i][j] = true;
-	    printPath1(a,ref, i-1, j, a[i][j],counter); 
-	    printPath1(a,ref, i+1, j, a[i][j],counter);
-	    printPath1(a,ref, i, j-1, a[i][j],counter);
-	    printPath1(a,ref, i, j+1, a[i][j],counter);
+	    printPath1(a,ref, i-1, j, a[i][j]); 
+	    printPath1(a,ref, i+1, j, a[i][j]);
+	    printPath1(a,ref, i, j-1, a[i][j]);
+	    printPath1(a,ref, i, j+1, a[i][j]);
 	}
 }
 	
