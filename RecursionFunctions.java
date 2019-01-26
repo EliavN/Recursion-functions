@@ -419,7 +419,6 @@
 	    printPath1(a,ref, i, j-1, a[i][j]);
 	    printPath1(a,ref, i, j+1, a[i][j]);
 	}
-}
 	
 	/** 
 	 * Exam 2014A 85 A5 - printPath option 2
@@ -427,43 +426,36 @@
 	public static void printPath(int[][] a){
 		printPath(a,0,0);
 	}
-	private static void printPath(int[][] a, int i, int j)
-	{		
-		System.out.print("("+ i +","+ j +")"); 
-		
-		
-		if(notOut(a,i+1,j)) 
-			if(a[i+1][j] > a[i][j]) {
-				printPath(a, i+1, j); 
-				return;
-			}
-
-
-		if(notOut(a,i,j+1))
-			if(a[i][j+1] > a[i][j]){
-				printPath(a, i, j+1); 
-				return;
-			}
-
-		if(notOut(a,i-1,j))
-			if(a[i-1][j] > a[i][j]){
-				printPath(a, i-1, j);
-				return;
-			}
-
-		if(notOut(a,i,j-1))
-			if(a[i][j-1] > a[i][j])	{
-				printPath(a, i, j-1);
-				return;
-			}				
-		}		
-	
-	private static boolean notOut(int[][] a, int i, int j)
-	{
-		if(i < 0 ||	i >a.length-1 || j < 0 || j > a[0].length-1)
-			return false;
-		return true;
-	} 
+    private static void printPath(int[][] a, int i, int j)
+    {		
+	System.out.print("("+ i +","+ j +")"); 
+	if(notOut(a,i+1,j)) 
+	    if(a[i+1][j] > a[i][j]) {
+		printPath(a, i+1, j); 
+		return;
+	    }
+	if(notOut(a,i,j+1))
+	    if(a[i][j+1] > a[i][j]){
+		printPath(a, i, j+1); 
+		return;
+	    }
+	if(notOut(a,i-1,j))
+	    if(a[i-1][j] > a[i][j]){
+		printPath(a, i-1, j);
+		return;
+	    }
+	if(notOut(a,i,j-1))
+	    if(a[i][j-1] > a[i][j]){
+		printPath(a, i, j-1);
+		return;
+	    }				
+    }		
+    private static boolean notOut(int[][] a, int i, int j)
+    {
+	if(i < 0 || i >a.length-1 || j < 0 || j > a[0].length-1)
+	    return false;
+	return true;
+    } 
 
 
 	/**	
