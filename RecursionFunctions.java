@@ -165,7 +165,31 @@
 		return isSumOf(s,n, i+1,st) || isSumOf(s,n-s[i], i,st + s[i] + " ");
 	}
 
-	
+
+
+    public static boolean isSubstring(String s1, String s2)
+    {
+        if(s1.length() < s2.length())
+            return false;
+        if(s2.length() == 0)
+            return true;
+        if(s1.charAt(0) == s2.charAt(0))
+        {
+            boolean isPrefix     = isPrefix(s1.substring(1, s2.length()), s2.substring(1, s2.length()));
+            boolean isSubstring  = isSubstring(s1.substring(1, s1.length()), s2);
+            return isPrefix || isSubstring;
+        }
+        return isSubstring(s1.substring(1, s1.length()), s2);
+    }
+
+    private static boolean isPrefix(String s1, String s2)
+    {
+        if(s2.length() == 0)
+            return true;
+        if(s1.charAt(0) != s2.charAt(0))
+            return false;
+        return isPrefix(s1.substring(1, s1.length()), s2.substring(1, s2.length()));
+    }
 	
 	
 	/**
