@@ -485,8 +485,8 @@
 	/**	
 	 * 2014B A4 85 - longestWorm 
 	 */
-	public static int longestWorm(int[][] a){
-    	return longestWorm2(a,0,0,1);   
+    public static int longestWorm(int[][] a){
+    	return longestWorm(a,0,0,1);   
     }
 
     private static int longestWorm(int[][] a,int i,int j,int max)
